@@ -39,7 +39,13 @@ dependencies:
   firebase_auth: ^4.16.0
   firebase_database: ^10.4.0
   flutter_native_splash: ^2.2.7
-  khalti_flutter: ^3.0.0
+  geolocator: ^11.0.0
+  geocoding: ^2.2.0
+  # flutter_inappwebview: ^5.8.0  #esewa lai gareko maile vyena
+  # esewa_flutter: ^1.1.2
+  # khalti: ^2.0.0
+  # khalti_flutter: ^2.2.1
+  # khalti_flutter: ^3.0.0
   # khalti_flutter: ^2.1.0
   # device_info_plus: ^3.2.1 #sradded
 
@@ -52,7 +58,7 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^2.0.0
+  flutter_lints: ^3.0.1
 
 flutter_native_splash:
   color: "#62beec"

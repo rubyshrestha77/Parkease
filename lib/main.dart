@@ -2,12 +2,13 @@
 // import 'package:parkease/dashboard.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:parkease/get_lat_long_address.dart';
 import 'package:parkease/home_page.dart';
 import 'package:parkease/login.dart';
 import 'package:parkease/login_as_admin.dart';
 import 'package:parkease/register.dart';
 // ignore: unused_import
-import 'package:khalti_flutter/khalti_flutter.dart';
+// import 'package:khalti_flutter/khalti_flutter.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -37,12 +38,14 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       // initialRoute: 'home_page',
-      initialRoute: 'login',
+      // initialRoute: 'login',
+      initialRoute: 'get_lat_long_address',
       routes: {
         'login': (context) => MyLogin(),
         'register': (context) => MyRegister(),
         'home_page': (context) => MyHome(),
         'login_as_admin': (context) => LoginAsAdmin(),
+        'get_lat_long_address': (context) => GetLatLongScreen(),
       },
     );
   }
