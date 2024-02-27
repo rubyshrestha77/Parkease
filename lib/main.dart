@@ -38,8 +38,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       // initialRoute: 'home_page',
-      // initialRoute: 'login',
-      initialRoute: 'get_lat_long_address',
+      initialRoute: 'login',
+      // initialRoute: 'get_lat_long_address',
       routes: {
         'login': (context) => MyLogin(),
         'register': (context) => MyRegister(),

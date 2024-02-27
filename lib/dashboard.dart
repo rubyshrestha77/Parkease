@@ -7,6 +7,7 @@
 import 'package:flutter/material.dart';
 import 'package:parkease/navbar.dart';
 import 'package:parkease/sample.dart';
+import 'package:parkease/parking_status.dart';
 
 // import 'package:parkease/sample2.dart';
 
@@ -140,73 +141,104 @@ class Dashboard extends StatelessWidget {
               ),
             ),
             Container(
-                decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 243, 238, 238),
-                  // borderRadius: BorderRadius.only(
-                  //   topLeft: Radius.circular(50),
-                  //   topRight: Radius.circular(50),
-                  // ),
-                ),
-                height: height * 0.45,
-                width: width,
-                // padding: EdgeInsets.only(
-                //   top: 130,
+              decoration: BoxDecoration(
+                color: Color.fromARGB(255, 243, 238, 238),
+                // borderRadius: BorderRadius.only(
+                //   topLeft: Radius.circular(50),
+                //   topRight: Radius.circular(50),
                 // ),
-                // child: (GridView.builder(
-                //   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                //     crossAxisCount: 2,
-                //     childAspectRatio: 1.1,
-                //     mainAxisSpacing: 25,
-                //   ),
-                //   shrinkWrap: true,
-                //   physics: NeverScrollableScrollPhysics(),
-                //   itemCount: imgData.length,
-                //   itemBuilder: (context, index) {
-                //     return InkWell(
-                //       onTap: () {
-                //         Navigator.push(
-                //           context,
-                //           MaterialPageRoute(builder: (context) => Sample()),
-                //           // MaterialPageRoute(builder: (context) => navData[0]),
-                //         );
-                //       },
-                //       child: Container(
-                //         margin:
-                //             EdgeInsets.symmetric(vertical: 8, horizontal: 20),
-                //         decoration: BoxDecoration(
-                //             borderRadius: BorderRadius.circular(20),
-                //             color: Colors.white,
-                //             boxShadow: [
-                //               BoxShadow(
-                //                 color: Color.fromARGB(255, 98, 190, 236),
-                //                 spreadRadius: 1,
-                //                 blurRadius: 6,
-                //               ),
-                //             ]),
-                //         child: Column(
-                //           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                //           children: [
-                //             Image.asset(
-                //               imgData[index],
-                //               width: 100,
-                //             ),
-                //           ],
-                //         ),
-                //       ),
-                //     );
-                //   },
-                // ))),
-                child: GridView.count(
-                  primary: false,
-                  padding: const EdgeInsets.all(10),
-                  crossAxisSpacing: 10,
-                  mainAxisSpacing: 10,
-                  crossAxisCount: 2,
-                  childAspectRatio: 1.1,
-                  shrinkWrap: true,
-                  physics: NeverScrollableScrollPhysics(),
-                  children: <Widget>[
-                    Container(
+              ),
+              height: height * 0.25,
+              width: width,
+              // padding: EdgeInsets.only(
+              //   top: 130,
+              // ),
+              // child: (GridView.builder(
+              //   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              //     crossAxisCount: 2,
+              //     childAspectRatio: 1.1,
+              //     mainAxisSpacing: 25,
+              //   ),
+              //   shrinkWrap: true,
+              //   physics: NeverScrollableScrollPhysics(),
+              //   itemCount: imgData.length,
+              //   itemBuilder: (context, index) {
+              //     return InkWell(
+              //       onTap: () {
+              //         Navigator.push(
+              //           context,
+              //           MaterialPageRoute(builder: (context) => Sample()),
+              //           // MaterialPageRoute(builder: (context) => navData[0]),
+              //         );
+              //       },
+              //       child: Container(
+              //         margin:
+              //             EdgeInsets.symmetric(vertical: 8, horizontal: 20),
+              //         decoration: BoxDecoration(
+              //             borderRadius: BorderRadius.circular(20),
+              //             color: Colors.white,
+              //             boxShadow: [
+              //               BoxShadow(
+              //                 color: Color.fromARGB(255, 98, 190, 236),
+              //                 spreadRadius: 1,
+              //                 blurRadius: 6,
+              //               ),
+              //             ]),
+              //         child: Column(
+              //           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              //           children: [
+              //             Image.asset(
+              //               imgData[index],
+              //               width: 100,
+              //             ),
+              //           ],
+              //         ),
+              //       ),
+              //     );
+              //   },
+              // ))),
+              child: GridView.count(
+                primary: false,
+                padding: const EdgeInsets.all(10),
+                crossAxisSpacing: 10,
+                mainAxisSpacing: 10,
+                crossAxisCount: 2,
+                childAspectRatio: 1.1,
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                children: <Widget>[
+                  Container(
+                    margin: EdgeInsets.symmetric(vertical: 8, horizontal: 20),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: Colors.white,
+                        boxShadow: [
+                          BoxShadow(
+                            color: Color.fromARGB(255, 98, 190, 236),
+                            spreadRadius: 1,
+                            blurRadius: 6,
+                          ),
+                        ]),
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Sample()),
+                          // MaterialPageRoute(builder: (context) => navData[0]),
+                        );
+                      },
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Image.asset(
+                            imgData[0],
+                            width: 100,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Container(
                       margin: EdgeInsets.symmetric(vertical: 8, horizontal: 20),
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
@@ -220,74 +252,93 @@ class Dashboard extends StatelessWidget {
                           ]),
                       child: InkWell(
                         onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => Sample()),
-                            // MaterialPageRoute(builder: (context) => navData[0]),
+                          showDialog(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return AlertDialog(
+                                title: Text(
+                                    "Sorry, 2 wheelers not available for now."),
+                                actions: [
+                                  TextButton(
+                                      onPressed: () {
+                                        Navigator.pop(context);
+                                      },
+                                      child: Text("Ok"))
+                                ],
+                              );
+                            },
                           );
+
+                          // Navigator.push(
+                          //   context,
+                          //   MaterialPageRoute(
+                          //       builder: (context) => Sample2()),
+                          //   // MaterialPageRoute(builder: (context) => navData[0]),
+                          // );
                         },
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             Image.asset(
-                              imgData[0],
+                              imgData[1],
                               width: 100,
                             ),
                           ],
                         ),
+                      )),
+                ],
+              ),
+            ),
+            Container(
+              decoration: BoxDecoration(
+                color: Color.fromARGB(255, 243, 238, 238),
+                // borderRadius: BorderRadius.only(
+                //   topLeft: Radius.circular(50),
+                //   topRight: Radius.circular(50),
+                // ),
+              ),
+              height: height * 0.20,
+              width: width,
+              child: Container(
+                  margin: EdgeInsets.symmetric(vertical: 50),
+                  // padding: EdgeInsets.only(left: 20),
+                  // width: width * 2,
+
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: Colors.white,
+                      boxShadow: [
+                        BoxShadow(
+                          color: Color.fromARGB(255, 98, 190, 236),
+                          spreadRadius: 1,
+                          blurRadius: 6,
+                        ),
+                      ]),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      // Handle button press
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ParkingStatusPage()),
+                      );
+                    },
+                    child: Text(
+                      'Parking status',
+                      style: TextStyle(
+                          fontSize: 20,
+                          // fontWeight: FontWeight.bold,
+                          color: Color.fromARGB(255, 98, 190, 236)),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.white,
+                      //textStyle: TextStyle(color: Colors.black),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20),
                       ),
                     ),
-                    Container(
-                        margin:
-                            EdgeInsets.symmetric(vertical: 8, horizontal: 20),
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                            color: Colors.white,
-                            boxShadow: [
-                              BoxShadow(
-                                color: Color.fromARGB(255, 98, 190, 236),
-                                spreadRadius: 1,
-                                blurRadius: 6,
-                              ),
-                            ]),
-                        child: InkWell(
-                          onTap: () {
-                            showDialog(
-                              context: context,
-                              builder: (BuildContext context) {
-                                return AlertDialog(
-                                  title: Text(
-                                      "Sorry, 2 wheelers not available for now."),
-                                  actions: [
-                                    TextButton(
-                                        onPressed: () {
-                                          Navigator.pop(context);
-                                        },
-                                        child: Text("Ok"))
-                                  ],
-                                );
-                              },
-                            );
-
-                            // Navigator.push(
-                            //   context,
-                            //   MaterialPageRoute(
-                            //       builder: (context) => Sample2()),
-                            //   // MaterialPageRoute(builder: (context) => navData[0]),
-                            // );
-                          },
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              Image.asset(
-                                imgData[1],
-                                width: 100,
-                              ),
-                            ],
-                          ),
-                        )),
-                  ],
-                ))
+                  )),
+            )
           ],
         ),
       ),

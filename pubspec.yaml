@@ -41,6 +41,7 @@ dependencies:
   flutter_native_splash: ^2.2.7
   geolocator: ^11.0.0
   geocoding: ^2.2.0
+  cloud_firestore: ^4.14.0
   # flutter_inappwebview: ^5.8.0  #esewa lai gareko maile vyena
   # esewa_flutter: ^1.1.2
   # khalti: ^2.0.0
@@ -62,10 +63,10 @@ dev_dependencies:
 
 flutter_native_splash:
   color: "#62beec"
-  image: images/logopng2.png
+  image: images/parklogo5.png
 
   android_12:
-    image: images/logopng2.png
+    image: images/parklogo5.png
     color: "#62beec"
 
 # For information on the generic Dart part of this file, see the

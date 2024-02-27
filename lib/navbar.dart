@@ -1,8 +1,11 @@
 // import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:parkease/admin.dart';
 import 'package:parkease/dashboard.dart';
+import 'package:parkease/gatekeeper.dart';
 import 'package:parkease/home_page.dart';
+import 'package:parkease/parking_details.dart';
 
 class NavBar extends StatelessWidget {
   const NavBar({super.key});
@@ -31,19 +34,29 @@ class NavBar extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => Dashboard()),
+                MaterialPageRoute(builder: (context) => Gatekeeper()),
               );
             },
           ),
           ListTile(
             leading: Icon(Icons.account_circle),
             title: Text('My Profile'),
-            onTap: () => print(''),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => ParkingDetailsScreen()),
+              );
+            },
           ),
           ListTile(
             leading: Icon(Icons.settings),
             title: Text('Setting'),
-            onTap: () => print(''),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => MyDataTable()),
+              );
+            },
           ),
           ListTile(
               leading: Icon(Icons.logout),

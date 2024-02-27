@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'SBBook.dart';
 
-class SBParking extends StatelessWidget {
+class SBParking extends StatefulWidget {
+  @override
+  State<SBParking> createState() => _SBParkingState();
+}
+
+class _SBParkingState extends State<SBParking> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,12 +25,13 @@ class SBParking extends StatelessWidget {
           SizedBox(height: 16), // Maintaining other gaps
           // Map Screenshot
           Expanded(
-            child: Placeholder(
-              // Replace Placeholder with ss widget of map
-              fallbackHeight: 200,
-            ),
+            // child: Placeholder(
+            // Replace Placeholder with ss widget of map
+            // fallbackHeight: 200,
+            //   ),
+            child: Image.asset('images/swayambhu.png'),
           ),
-          SizedBox(height: 16),
+          SizedBox(height: 50),
           // Book and Cancel Buttons
           _buildButtons(context),
         ],
@@ -51,16 +57,18 @@ class SBParking extends StatelessWidget {
                 Text(
                   "Total Slots",
                   style: TextStyle(
-                    fontSize: 16,
+                    fontSize: 20,
                     fontWeight: FontWeight.bold,
+                    color: Colors.white,
                   ),
                 ),
                 SizedBox(height: 8),
                 Text(
                   "15",
                   style: TextStyle(
-                    fontSize: 16,
+                    fontSize: 20,
                     fontWeight: FontWeight.bold,
+                    color: Colors.white,
                   ),
                 ),
               ],
@@ -95,7 +103,7 @@ class SBParking extends StatelessWidget {
               Text(
                 "Available Slots",
                 style: TextStyle(
-                  fontSize: 16,
+                  fontSize: 20,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -110,7 +118,9 @@ class SBParking extends StatelessWidget {
   Widget _buildButtons(BuildContext context) {
     //take context as a parameter
     return Padding(
-      padding: const EdgeInsets.all(16.0),
+      // padding: const EdgeInsets.all(16.0),
+      // padding: EdgeInsets.zero,
+      padding: const EdgeInsets.only(bottom: 60.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
@@ -130,7 +140,12 @@ class SBParking extends StatelessWidget {
               ),
               shadowColor: Colors.transparent,
             ),
-            child: Text('Book'),
+            child: Text(
+              'Book',
+              style: TextStyle(
+                fontSize: 20,
+              ),
+            ),
           ),
           ElevatedButton(
             onPressed: () {
@@ -145,7 +160,12 @@ class SBParking extends StatelessWidget {
               ),
               shadowColor: Colors.transparent,
             ),
-            child: Text('Cancel'),
+            child: Text(
+              'Cancel',
+              style: TextStyle(
+                fontSize: 20,
+              ),
+            ),
           ),
         ],
       ),
