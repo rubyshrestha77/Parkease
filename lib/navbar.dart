@@ -34,7 +34,7 @@ class NavBar extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => Gatekeeper()),
+                MaterialPageRoute(builder: (context) => Dashboard()),
               );
             },
           ),
@@ -54,7 +54,7 @@ class NavBar extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => MyDataTable()),
+                MaterialPageRoute(builder: (context) => FirebaseTableWidget()),
               );
             },
           ),

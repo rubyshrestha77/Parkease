@@ -148,7 +148,7 @@ class Dashboard extends StatelessWidget {
                 //   topRight: Radius.circular(50),
                 // ),
               ),
-              height: height * 0.25,
+              height: height * 0.45,
               width: width,
               // padding: EdgeInsets.only(
               //   top: 130,
@@ -289,56 +289,56 @@ class Dashboard extends StatelessWidget {
                 ],
               ),
             ),
-            Container(
-              decoration: BoxDecoration(
-                color: Color.fromARGB(255, 243, 238, 238),
-                // borderRadius: BorderRadius.only(
-                //   topLeft: Radius.circular(50),
-                //   topRight: Radius.circular(50),
-                // ),
-              ),
-              height: height * 0.20,
-              width: width,
-              child: Container(
-                  margin: EdgeInsets.symmetric(vertical: 50),
-                  // padding: EdgeInsets.only(left: 20),
-                  // width: width * 2,
+            // Container(
+            //   decoration: BoxDecoration(
+            //     color: Color.fromARGB(255, 243, 238, 238),
+            //     // borderRadius: BorderRadius.only(
+            //     //   topLeft: Radius.circular(50),
+            //     //   topRight: Radius.circular(50),
+            //     // ),
+            //   ),
+            //   height: height * 0.20,
+            //   width: width,
+            //   child: Container(
+            //       margin: EdgeInsets.symmetric(vertical: 50),
+            //       // padding: EdgeInsets.only(left: 20),
+            //       // width: width * 2,
 
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      color: Colors.white,
-                      boxShadow: [
-                        BoxShadow(
-                          color: Color.fromARGB(255, 98, 190, 236),
-                          spreadRadius: 1,
-                          blurRadius: 6,
-                        ),
-                      ]),
-                  child: ElevatedButton(
-                    onPressed: () {
-                      // Handle button press
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => ParkingStatusPage()),
-                      );
-                    },
-                    child: Text(
-                      'Parking status',
-                      style: TextStyle(
-                          fontSize: 20,
-                          // fontWeight: FontWeight.bold,
-                          color: Color.fromARGB(255, 98, 190, 236)),
-                    ),
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.white,
-                      //textStyle: TextStyle(color: Colors.black),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                    ),
-                  )),
-            )
+            //       decoration: BoxDecoration(
+            //           borderRadius: BorderRadius.circular(20),
+            //           color: Colors.white,
+            //           boxShadow: [
+            //             BoxShadow(
+            //               color: Color.fromARGB(255, 98, 190, 236),
+            //               spreadRadius: 1,
+            //               blurRadius: 6,
+            //             ),
+            //           ]),
+            //       child: ElevatedButton(
+            //         onPressed: () {
+            //           // Handle button press
+            //           Navigator.push(
+            //             context,
+            //             MaterialPageRoute(
+            //                 builder: (context) => ParkingStatusPage()),
+            //           );
+            //         },
+            //         child: Text(
+            //           'Parking status',
+            //           style: TextStyle(
+            //               fontSize: 20,
+            //               // fontWeight: FontWeight.bold,
+            //               color: Color.fromARGB(255, 98, 190, 236)),
+            //         ),
+            //         style: ElevatedButton.styleFrom(
+            //           backgroundColor: Colors.white,
+            //           //textStyle: TextStyle(color: Colors.black),
+            //           shape: RoundedRectangleBorder(
+            //             borderRadius: BorderRadius.circular(20),
+            //           ),
+            //         ),
+            //       )),
+            // )
           ],
         ),
       ),

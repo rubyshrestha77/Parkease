@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 <!-- package="com.example.parkease" -->
+<uses-permission android:name="android.permission.INTERNET" />
 <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
@@ -7,6 +8,10 @@
         android:label="parkease"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+
+        <meta-data
+           android:name="com.google.android.geo.API_KEY"
+           android:value="AIzaSyCS2SpkuFJ2gvvUIjaCVbAvvKXoB9ITWpo" />
         <activity
             android:name=".MainActivity"
             android:exported="true"

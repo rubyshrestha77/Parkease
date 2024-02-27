@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:parkease/admindashboard.dart';
 
 class LoginAsAdmin extends StatefulWidget {
   const LoginAsAdmin({super.key});
@@ -138,7 +139,11 @@ class _LoginAsAdminState extends State<LoginAsAdmin> {
                         if (UsernameController.text == 'admin' &&
                             EmailController.text == 'admin123@gmail.com' &&
                             PasswordController.text == '123') {
-                          Navigator.pushNamed(context, 'home_page');
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => Myadmin()),
+                            // MaterialPageRoute(builder: (context) => navData[0]),
+                          );
                         } else {
                           // Show an error message or handle invalid credentials
                           showDialog(

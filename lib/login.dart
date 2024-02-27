@@ -11,7 +11,7 @@ class MyLogin extends StatefulWidget {
 
 class _MyLoginState extends State<MyLogin> {
   final _formkey = GlobalKey<FormState>();
-  TextEditingController _usernameController = TextEditingController();
+  // TextEditingController _usernameController = TextEditingController();
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
   bool isVisible = false;
@@ -33,8 +33,8 @@ class _MyLoginState extends State<MyLogin> {
           //   ),
           // ),
           Container(
-            margin:
-                const EdgeInsets.only(top: 60, left: 10, bottom: 30, right: 10),
+            margin: const EdgeInsets.only(
+                top: 110, left: 10, bottom: 120, right: 10),
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 50),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.only(
@@ -52,7 +52,7 @@ class _MyLoginState extends State<MyLogin> {
                 children: [
                   Container(
                     padding:
-                        const EdgeInsets.symmetric(horizontal: 10, vertical: 3),
+                        const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -67,33 +67,33 @@ class _MyLoginState extends State<MyLogin> {
                       ],
                     ),
                   ),
+                  // Container(
+                  //   margin: const EdgeInsets.all(8),
+                  //   padding:
+                  //       const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+                  //   decoration: BoxDecoration(
+                  //     borderRadius: BorderRadius.circular(15),
+                  //     color: Color.fromARGB(255, 98, 190, 236).withOpacity(.3),
+                  //   ),
+                  //   child: TextFormField(
+                  //     controller: _usernameController,
+                  //     validator: (value) {
+                  //       if (value!.isEmpty) {
+                  //         return "Username is required";
+                  //       }
+                  //       return null;
+                  //     },
+                  //     decoration: const InputDecoration(
+                  //       icon: Icon(Icons.person),
+                  //       hintText: 'Username',
+                  //       border: InputBorder.none,
+                  //     ),
+                  //   ),
+                  // ),
                   Container(
                     margin: const EdgeInsets.all(8),
                     padding:
-                        const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
-                      color: Color.fromARGB(255, 98, 190, 236).withOpacity(.3),
-                    ),
-                    child: TextFormField(
-                      controller: _usernameController,
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return "Username is required";
-                        }
-                        return null;
-                      },
-                      decoration: const InputDecoration(
-                        icon: Icon(Icons.person),
-                        hintText: 'Username',
-                        border: InputBorder.none,
-                      ),
-                    ),
-                  ),
-                  Container(
-                    margin: const EdgeInsets.all(8),
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+                        const EdgeInsets.symmetric(horizontal: 8, vertical: 5),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
                       color: Color.fromARGB(255, 98, 190, 236).withOpacity(.3),
@@ -120,7 +120,7 @@ class _MyLoginState extends State<MyLogin> {
                   Container(
                     margin: const EdgeInsets.all(8),
                     padding:
-                        const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+                        const EdgeInsets.symmetric(horizontal: 8, vertical: 5),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
                       color: Color.fromARGB(255, 98, 190, 236).withOpacity(.3),

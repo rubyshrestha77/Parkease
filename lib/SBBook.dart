@@ -39,6 +39,16 @@ class _SBBookState extends State<SBBook> {
                 _showBookingConfirmation(context);
               }
             },
+            // onTap: isSlotBooked[i] // Check if slot is already booked
+            //     ? null // If booked, disable onTap function
+            //     : () {
+            //         // If not booked, enable onTap function
+            //         // Reduce available slots after booking
+            //         setState(() {
+            //           isSlotBooked[i] = true;
+            //           availableSlots--;
+            //         });
+            //       },
             child: Container(
               width: slotSize,
               height: slotSize,

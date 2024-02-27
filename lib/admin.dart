@@ -1,83 +1,65 @@
+//for displaying all data
+//adim lai
+// scrollable
+
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:parkease/dashboard.dart';
 
-class UserData {
-  final String username;
-  final String email;
-  final String address;
-  // final int number;
-  final String vehicleNumber;
-
-  UserData({
-    required this.username,
-    required this.email,
-    required this.address,
-    // required this.number,
-    required this.vehicleNumber,
-  });
+class FirebaseTableWidget extends StatefulWidget {
+  @override
+  State<FirebaseTableWidget> createState() => _FirebaseTableWidgetState();
 }
 
-class MyDataTable extends StatelessWidget {
+class _FirebaseTableWidgetState extends State<FirebaseTableWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('User Data Table'),
-        backgroundColor: Color.fromARGB(255, 98, 190, 236),
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back),
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => Dashboard()),
-            );
-          },
-        ),
+        title: Text('User Details'),
       ),
-      body: StreamBuilder(
-        stream: FirebaseFirestore.instance.collection('Users').snapshots(),
-        builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
-          if (!snapshot.hasData) {
+      body: FutureBuilder<QuerySnapshot>(
+        future: FirebaseFirestore.instance.collection('Users').get(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
             return CircularProgressIndicator();
           }
 
-          List<UserData> userDataList = [];
-          snapshot.data!.docs.forEach((doc) {
-            userDataList.add(UserData(
-              username: doc['username'],
-              email: doc['email'],
-              address: doc['address'],
-              // number: int['number'],
-              vehicleNumber: doc['vehicleNumber'],
-            ));
-          });
+          if (snapshot.hasError) {
+            return Text('Error: ${snapshot.error}');
+          }
 
-          return DataTable(
-            columns: [
-              DataColumn(label: Text('Username')),
-              DataColumn(label: Text('Email')),
-              DataColumn(label: Text('Address')),
-              // DataColumn(label: Text('Number')),
-              DataColumn(label: Text('Vehicle Number')),
-              DataColumn(label: Text('Edit')), // Additional column for editing
-            ],
-            rows: userDataList.map((userData) {
-              return DataRow(cells: [
-                DataCell(Text(userData.username)),
-                DataCell(Text(userData.email)),
-                DataCell(Text(userData.address)),
-                // DataCell(Text(userData.number)),
-                DataCell(Text(userData.vehicleNumber)),
-                DataCell(IconButton(
-                  icon: Icon(Icons.edit),
-                  onPressed: () {
-                    // Implement editing functionality here
-                    // You can navigate to a new screen or show a dialog for editing
-                  },
-                )),
-              ]);
-            }).toList(),
+          return SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: DataTable(
+              columns: [
+                DataColumn(label: Text('Address')),
+                DataColumn(label: Text('Email')),
+                DataColumn(label: Text('Number')),
+                DataColumn(label: Text('Vehicle No.')),
+                DataColumn(label: Text('Username')),
+                DataColumn(label: Text('Edit')),
+                // Add more DataColumn widgets for additional columns
+              ],
+              rows: snapshot.data!.docs.map((DocumentSnapshot document) {
+                Map<String, dynamic> data =
+                    document.data() as Map<String, dynamic>;
+
+                return DataRow(
+                  cells: [
+                    DataCell(Text(data['address'].toString())),
+                    DataCell(Text(data['email'].toString())),
+                    DataCell(Text(data['number'].toString())),
+                    DataCell(Text(data['username'].toString())),
+                    DataCell(Text(data['vehicleNumber'].toString())),
+                    DataCell(IconButton(
+                      icon: Icon(Icons.delete),
+                      onPressed: () {},
+                    ))
+                    // Add more DataCell widgets for additional columns
+                  ],
+                );
+              }).toList(),
+            ),
           );
         },
       ),
